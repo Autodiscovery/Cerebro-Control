@@ -1,0 +1,6 @@
+[submodule "avp_teleoperate/unitree_dds_wrapper"]
+	path = avp_teleoperate/unitree_dds_wrapper
+	url = https://github.com/unitreerobotics/unitree_dds_wrapper.git
+[submodule "human2humaniod/unitree_sdk2_python"]
+	path = human2humaniod/unitree_sdk2_python
+	url = https://github.com/unitreerobotics/unitree_sdk2_python.git
