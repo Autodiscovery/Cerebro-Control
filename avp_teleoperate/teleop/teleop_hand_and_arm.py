@@ -152,18 +152,18 @@ if __name__ == '__main__':
     SEND_INTERVAL = 0.5  # Time interval to send control loop data in seconds (Do not increase unless made changes in C++ side)
 
     # H1_control socket
-    # server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    # server_socket.setsockopt(socket.IPPROTO_TCP, socket.TCP_NODELAY, 1)  # Disable Nagle’s algorithm
-    # server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_SNDBUF, 1024)  # Reduce buffer size
-    # server_address = ('192.168.123.162', 8080)
-    # # server_address = ('100.100.152.53', 8080)   # tailscale IP
-    # server_socket.connect(server_address)
+    server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    server_socket.setsockopt(socket.IPPROTO_TCP, socket.TCP_NODELAY, 1)  # Disable Nagle’s algorithm
+    server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_SNDBUF, 1024)  # Reduce buffer size
+    server_address = ('192.168.123.162', 8080)
+    # server_address = ('100.100.152.53', 8080)   # tailscale IP
+    server_socket.connect(server_address)
 
-    # # Hands socket
-    # hands_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    # hands_socket.setsockopt(socket.IPPROTO_TCP, socket.TCP_NODELAY, 1)
-    # # hands_socket.connect(("100.100.152.53", 5050))  # tailscale IP
-    # hands_socket.connect(("192.168.123.162", 5050))
+    # Hands socket
+    hands_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    hands_socket.setsockopt(socket.IPPROTO_TCP, socket.TCP_NODELAY, 1)
+    # hands_socket.connect(("100.100.152.53", 5050))  # tailscale IP
+    hands_socket.connect(("192.168.123.162", 5050))
 
     last_sent_time = time.time()
             
@@ -199,7 +199,7 @@ if __name__ == '__main__':
                 if current_time - last_sent_time >= SEND_INTERVAL:
                     print('Sol_q: ', sol_q_values)
                     print('Tau_ff: ', tau_ff_values)
-                    # send_data(server_socket, combined_data)
+                    send_data(server_socket, combined_data)
                     last_sent_time = current_time  # Update the last sent time
 
                 if right_qpos is not None and left_qpos is not None:
@@ -213,7 +213,7 @@ if __name__ == '__main__':
                     left_angles.append(0.5 - left_qpos[9])
                     h1hand.crtl(right_angles,left_angles)
 
-                    # send_hand_data(hands_socket, left_angles, right_angles)
+                    send_hand_data(hands_socket, left_angles, right_angles)
 
                     print("Right hand:", right_angles)
                     print("Left hand:", left_angles)
