@@ -187,7 +187,7 @@ python teleop_hand.py
 ```bash
 python head_cam.py
 ```
-  5. Next, connect and set up the VR headset (Quest 3 by default, with the IP address assumed to be 192.168.123.249; instructions for Apple Vision Pro can be found in the Unitree and OpenTelevision repositories):
+  5. Next, connect and set up the VR headset (Quest 3 by default, with the IP address assumed to be 192.168.123.249:
 ```bash
 adb connect 192.168.123.249:5555
 adb reverse tcp:8012 tcp:8012
