@@ -111,7 +111,7 @@ A key innovation of our approach is the enablement of teleoperation in sports mo
 ## Installation
 This repository differs from avp_teleoperate in that it does not utilize the unitree_dds_wrapper for sending commands to the robot. Instead, it primarily relies on sockets. However, it does use the [unitree_sdk2](https://github.com/unitreerobotics/unitree_sdk2) to control the robot during sports mode. To set up and use this repository, please follow the steps below:
 
-### Host PC:
+#### Host PC:
 
   1. Clone this repository onto the host PC that will run your teleoperation code and be connected to the VR headset. Follow the commands below to setup the environment:
 ```bash
@@ -125,7 +125,7 @@ This repository differs from avp_teleoperate in that it does not utilize the uni
  cd act/detr && pip install -e .
 ```
 
-### Humanoid H1 - Development PC2:
+#### Humanoid H1 - Development PC2:
 
   1. SSH into the PC2 used for H1 development and begin by cloning the [unitree_sdk2](https://github.com/unitreerobotics/unitree_sdk2). Follow the instructions to install and build it:
   2. The h1_joint.cpp program provided in our repository (located in the H1_sdk_cpp folder) needs to be placed into the unitree_sdk2/example/h1/low_level directory.
@@ -148,7 +148,7 @@ make
 pip install -r requirements.txt
 ```
 
-### Head 360 PC (Optional):
+#### Head 360 PC (Optional):
 
   1. Finally, place the code from the Head360 folder onto the head PC to stream video data to the socket. Alternatively, you can develop your own code and use an external camera to send data to the VR headset by ensuring the correct IP and port addresses for the host PC are used.
 
