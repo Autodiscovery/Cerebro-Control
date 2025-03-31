@@ -1,9 +1,11 @@
-# CerebroControl - H1 Humanoid VR teleoperation while walking.
+# Cerebro-Control - H1 Humanoid VR teleoperation while walking.
 This code, developed by Autodiscovery, enables teleoperation of the Unitree H1 humanoid using a VR headset. It facilitates upper-body control by replicating human hand and finger movements in VR while maintaining locomotion through joystick-based reinforcement learning (RL). The implementation builds upon [avp_teleoperate](https://github.com/unitreerobotics/avp_teleoperate/tree/h1) by [Unitree Robotics](https://github.com/unitreerobotics) and [OpenTelevision](https://github.com/OpenTeleVision/TeleVision).
 
-This repository is designed to work with the stock Unitree H1 and is compatible with add-ons such as the Inspire Robot Dextrous Hands, as well as upgrades like the Head360 and Hand16. For more information on the mentioned upgrades, please contact info@autodiscovery.co.uk or visit [Autodiscovery UK](https://autodiscovery.co.uk).
+Watch our demo video on [LinkedIn](https://www.linkedin.com/posts/autodiscovery-robots_autodiscovery-robots-physicalintelligence-activity-7302486572199792640-PObD?utm_source=share&utm_medium=member_desktop&rcm=ACoAACBfWI0BowobH5dHrmolOK-csmED6Q8A0Ss)
 
-A key innovation of our approach is the enablement of teleoperation in sports mode, a feature previously deemed impossible. Traditionally, Unitree's teleoperation required the robot to remain in developer mode, which restricted locomotion. Our implementation eliminates this limitation, enabling full-body teleoperation with active movement. To highlight the differences and key advantages of our solution, we have compared our code with similar works, such as Unitree's avp_teleoperate, OpenTelevision, and [Human2Humanoid](https://github.com/LeCAR-Lab/human2humanoid), in the comparison table below:
+This repository is designed to work with the stock Unitree H1 and is compatible with add-ons such as the Inspire Robot Dextrous Hands, as well as upgrades like the [Head360](https://autodiscovery.co.uk/equipment/head360.html) and [Hand16](https://autodiscovery.co.uk/equipment/hand16.html). For more information on the mentioned upgrades, please contact info@autodiscovery.co.uk or visit [Autodiscovery UK](https://autodiscovery.co.uk).
+
+A key innovation of our approach is the enablement of teleoperation in sports mode, this approach enables the user to teleoperate the upper body while leaving the robot in sports mode making use of the RL model for locomotion and stability using the joystick controller. To highlight the differences and key advantages of our solution, we have compared our code with similar works, such as Unitree's avp_teleoperate, OpenTelevision, and [Human2Humanoid](https://github.com/LeCAR-Lab/human2humanoid), in the comparison table below:
 
 <table class="tg"><thead>
   <tr>
@@ -15,7 +17,7 @@ A key innovation of our approach is the enablement of teleoperation in sports mo
   </tr></thead>
 <tbody>
   <tr>
-    <td class="tg-amwm">CerebroControl</td>
+    <td class="tg-amwm">Cerebro-Control</td>
     <td class="tg-baqh">VR Headset</td>
     <td class="tg-baqh">Yes, base Unitree walking RL <br>model enabled for locomotion</td>
     <td class="tg-baqh">Yes</td>
@@ -60,7 +62,7 @@ A key innovation of our approach is the enablement of teleoperation in sports mo
     <td class="tg-c3ow">1.</td>
     <td class="tg-c3ow">Unitree H1 Humanoid Robot with <br>development PC2 including joystick RC.</td>
     <td class="tg-c3ow">Mandatory</td>
-    <td class="tg-c3ow">https://www.unitree.com/h1</td>
+    <td class="tg-c3ow">https://autodiscovery.co.uk/robots/h1.html</td>
   </tr>
   <tr>
     <td class="tg-c3ow">2.</td>
@@ -103,6 +105,8 @@ A key innovation of our approach is the enablement of teleoperation in sports mo
 ## Installation
 This repository differs from avp_teleoperate in that it does not utilize the unitree_dds_wrapper for sending commands to the robot. Instead, it primarily relies on sockets. However, it does use the [unitree_sdk2](https://github.com/unitreerobotics/unitree_sdk2) to control the robot during sports mode. To set up and use this repository, please follow the steps below:
 
+### Host PC:
+
   1. Clone this repository onto the host PC that will run your teleoperation code and be connected to the VR headset. Follow the commands below to setup the environment:
 ```bash
  conda create -n tv python=3.8
@@ -114,14 +118,17 @@ This repository differs from avp_teleoperate in that it does not utilize the uni
  pip install -r requirements.txt
  cd act/detr && pip install -e .
 ```
-  2. SSH into the PC2 used for H1 development and begin by cloning the [unitree_sdk2](https://github.com/unitreerobotics/unitree_sdk2). Follow the instructions to install and build it:
-  3. The h1_joint.cpp program provided in our repository (located in the H1_sdk_cpp folder) needs to be placed into the unitree_sdk2/example/h1/low_level directory.
-  4. Modify the CMakeLists.txt file in the unitree_sdk2/example/h1 folder by adding the following lines:
+
+### Humanoid H1 - Development PC2:
+
+  1. SSH into the PC2 used for H1 development and begin by cloning the [unitree_sdk2](https://github.com/unitreerobotics/unitree_sdk2). Follow the instructions to install and build it:
+  2. The h1_joint.cpp program provided in our repository (located in the H1_sdk_cpp folder) needs to be placed into the unitree_sdk2/example/h1/low_level directory.
+  3. Modify the CMakeLists.txt file in the unitree_sdk2/example/h1 folder by adding the following lines:
 ```bash
 add_executable(h1_joint low_level/h1_joint.cpp)
 target_link_libraries(h1_joint unitree_sdk2)
 ```
-  5. Follow the build procedure again to compile and prepare the executable:
+  4. Follow the build procedure again to compile and prepare the executable:
 ```bash
 git clone https://github.com/unitreerobotics/unitree_sdk2.git
 mkdir build
@@ -130,11 +137,14 @@ cmake ..
 sudo make install
 make
 ```
-  6. Copy the programs from the Inspire Hand folder to a directory on the PC2 of the H1 for direct control of the hands. Ensure the hands are connected to the H1 PC2 via USB (default: USB0 for the right hand and USB1 for the left hand). Then, run the following command:
+  5. Copy the programs from the Inspire Hand folder to a directory on the PC2 of the H1 for direct control of the hands. Ensure the hands are connected to the H1 PC2 via USB (default: USB0 for the right hand and USB1 for the left hand). Then, run the following command:
 ```bash
 pip install -r requirements.txt
 ```
-  7. Finally, place the code from the Head360 folder onto the head PC to stream video data to the socket. Alternatively, you can develop your own code and use an external camera to send data to the VR headset by ensuring the correct IP and port addresses for the host PC are used.
+
+### Head 360 PC (Optional):
+
+  1. Finally, place the code from the Head360 folder onto the head PC to stream video data to the socket. Alternatively, you can develop your own code and use an external camera to send data to the VR headset by ensuring the correct IP and port addresses for the host PC are used.
 
 ## Device setup
 
@@ -177,7 +187,7 @@ It is strongly recommended to set up Conda environments on the host PC, the H1 P
 ```bash
 ./h1_joint enp31sf6
 ```
-  3. Once the arms are initialized and the socket is ready, Operator B should run the hand control program from the Inspire Hand folder. Assuming the hands are connected via USB to the robot as USB0 - right hand and USB1 - left hand, follow these steps to control them via python:
+  3. Once the arms are initialized and the socket is ready, Operator B should run the hand control program from the Inspire Hand folder (Please note that this part of the code is assuming that you're using the Inspire robots dextrous hands. Support for other hands coming soon). Assuming the hands are connected via USB to the robot as USB0 - right hand and USB1 - left hand, follow these steps to control them via python:
 ```bash
 sudo chmod 666 /dev/ttyUSB0
 sudo chmod 666 /dev/ttyUSB1
