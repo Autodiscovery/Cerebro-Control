@@ -134,7 +134,7 @@ This repository differs from avp_teleoperate in that it does not utilize the uni
 add_executable(h1_joint low_level/h1_joint.cpp)
 target_link_libraries(h1_joint unitree_sdk2)
 ```
-  4. Follow the build procedure again to compile and prepare the executable:
+  4. Execute the following commands to compile and prepare the executable:
 ```bash
 git clone https://github.com/unitreerobotics/unitree_sdk2.git
 mkdir build
