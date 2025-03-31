@@ -23,30 +23,30 @@ A key innovation of our approach is the enablement of teleoperation in sports mo
   <tr>
     <td class="tg-amwm">Cerebro-Control</td>
     <td class="tg-baqh">VR Headset</td>
-    <td class="tg-baqh">Yes, base Unitree walking RL <br>model enabled for locomotion</td>
+    <td class="tg-baqh">Yes, base Unitree walking RL model enabled for locomotion</td>
     <td class="tg-baqh">Yes</td>
     <td class="tg-baqh">Coming soon</td>
   </tr>
   <tr>
     <td class="tg-amwm">Unitree - avp_teleoperate</td>
     <td class="tg-baqh">VR Headset</td>
-    <td class="tg-baqh">No, robot needs to be either <br>hanging or seated</td>
+    <td class="tg-baqh">No, robot needs to be either hanging or seated</td>
     <td class="tg-baqh">Yes</td>
-    <td class="tg-baqh">Yes for G1 and H1_2, <br>but not for H1</td>
+    <td class="tg-baqh">Yes for G1 and H1_2, but not for H1</td>
   </tr>
   <tr>
     <td class="tg-amwm">OpenTeleVision</td>
     <td class="tg-baqh">VR Headset</td>
-    <td class="tg-baqh">No, robot needs to be either <br>hanging or seated</td>
+    <td class="tg-baqh">No, robot needs to be either hanging or seated</td>
     <td class="tg-baqh">Yes</td>
     <td class="tg-baqh">No</td>
   </tr>
   <tr>
     <td class="tg-amwm">Human2humanoid</td>
-    <td class="tg-baqh">Full body pose tracking <br>using RGBD cameras</td>
-    <td class="tg-baqh">Yes, robot copies human locomotion <br>using custom full body RL model</td>
+    <td class="tg-baqh">Full body pose tracking using RGBD cameras</td>
+    <td class="tg-baqh">Yes, robot copies human locomotion using custom full body RL model</td>
     <td class="tg-baqh">No</td>
-    <td class="tg-baqh">Yes for custom <br>full body RL training</td>
+    <td class="tg-baqh">Yes for custom full body RL training</td>
   </tr>
 </tbody></table>
 
@@ -66,7 +66,7 @@ A key innovation of our approach is the enablement of teleoperation in sports mo
 <tbody>
   <tr>
     <td class="tg-c3ow">1.</td>
-    <td class="tg-c3ow">Unitree H1 Humanoid Robot with <br>development PC2 including joystick RC.</td>
+    <td class="tg-c3ow">Unitree H1 Humanoid Robot with development PC2 including joystick RC.</td>
     <td class="tg-c3ow">Mandatory</td>
     <td class="tg-c3ow">https://autodiscovery.co.uk/robots/h1.html</td>
   </tr>
@@ -74,7 +74,7 @@ A key innovation of our approach is the enablement of teleoperation in sports mo
     <td class="tg-c3ow">2.</td>
     <td class="tg-c3ow">Host PC or laptop</td>
     <td class="tg-c3ow">Mandatory</td>
-    <td class="tg-c3ow">Preferably something with a powerful CPU <br>and at least 8 GB RAM. OS with either Ubuntu 24.04 or 22.04 version.</td>
+    <td class="tg-c3ow">Preferably something with a powerful CPU and at least 8 GB RAM. OS with either Ubuntu 24.04 or 22.04 version.</td>
   </tr>
   <tr>
     <td class="tg-c3ow">3.</td>
@@ -84,9 +84,9 @@ A key innovation of our approach is the enablement of teleoperation in sports mo
   </tr>
   <tr>
     <td class="tg-c3ow">4.</td>
-    <td class="tg-c3ow">2 Human Operators with technical <br>knowledge to operate the equipment</td>
+    <td class="tg-c3ow">2 Human Operators with technical knowledge to operate the equipment</td>
     <td class="tg-c3ow">Mandatory</td>
-    <td class="tg-c3ow">Operator A to use the VR headset for teleoperation and <br>Operator B to control the H1 using the joystick.</td>
+    <td class="tg-c3ow">Operator A to use the VR headset for teleoperation and Operator B to control the H1 using the joystick.</td>
   </tr>
   <tr>
     <td class="tg-c3ow">5.</td>
