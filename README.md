@@ -128,6 +128,9 @@ This repository differs from avp_teleoperate in that it does not utilize the uni
 #### Humanoid H1 - Development PC2:
 
   1. SSH into the PC2 used for H1 development and begin by cloning the [unitree_sdk2](https://github.com/unitreerobotics/unitree_sdk2). Follow the instructions to install and build it:
+```bash
+git clone https://github.com/unitreerobotics/unitree_sdk2.git
+```
   2. The h1_joint.cpp program provided in our repository (located in the H1_sdk_cpp folder) needs to be placed into the unitree_sdk2/example/h1/low_level directory.
   3. Modify the CMakeLists.txt file in the unitree_sdk2/example/h1 folder by adding the following lines:
 ```bash
@@ -136,7 +139,6 @@ target_link_libraries(h1_joint unitree_sdk2)
 ```
   4. Execute the following commands to compile and prepare the executable:
 ```bash
-git clone https://github.com/unitreerobotics/unitree_sdk2.git
 mkdir build
 cd build
 cmake ..
