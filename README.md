@@ -1,6 +1,8 @@
 # Cerebro-Control - H1 Humanoid VR teleoperation while walking.
 This code, developed by Autodiscovery, enables teleoperation of the Unitree H1 humanoid using a VR headset. It facilitates upper-body control by replicating human hand and finger movements in VR while maintaining locomotion through joystick-based reinforcement learning (RL). The implementation builds upon [avp_teleoperate](https://github.com/unitreerobotics/avp_teleoperate/tree/h1) by [Unitree Robotics](https://github.com/unitreerobotics) and [OpenTelevision](https://github.com/OpenTeleVision/TeleVision).
 
+<img src="./images/H1_gif.gif" autoplay loop="loop" style="width: 80%"></img>
+
 Watch our demo video on [LinkedIn](https://www.linkedin.com/posts/autodiscovery-robots_autodiscovery-robots-physicalintelligence-activity-7302486572199792640-PObD?utm_source=share&utm_medium=member_desktop&rcm=ACoAACBfWI0BowobH5dHrmolOK-csmED6Q8A0Ss)
 
 This repository is designed to work with the stock Unitree H1 and is compatible with add-ons such as the Inspire Robot Dextrous Hands, as well as upgrades like the [Head360](https://autodiscovery.co.uk/equipment/head360.html) and [Hand16](https://autodiscovery.co.uk/equipment/hand16.html). For more information on the mentioned upgrades, please contact info@autodiscovery.co.uk or visit [Autodiscovery UK](https://autodiscovery.co.uk).
